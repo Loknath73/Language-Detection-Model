@@ -1,58 +1,80 @@
-🌐 AI-Powered Language Detector
-An end-to-end Machine Learning project that detects the language of any given text input. The model is trained on a multi-lingual dataset supporting 23 different languages, with special optimizations implemented for South Asian languages like Bengali using advanced text tokenization techniques.
+# 🌍 AI-Powered Language Detector
 
-Features
-Multi-language Support: Detects 23 global languages (including English, Bengali, Hindi, Spanish, French, Arabic, and more).
+An end-to-end Machine Learning project that automatically detects the language of a given text input. The model is trained on a multilingual dataset supporting **23 different languages**, including **English, Bengali, Hindi, Arabic, French, Spanish**, and more. To improve performance on underrepresented languages like **Bengali**, the dataset was balanced using oversampling, and Unicode-friendly tokenization was applied for accurate text processing.
 
-Balanced Dataset Optimization: Addressed data imbalance issues by oversampling minority classes (like Bengali) to ensure unbiased predictions.
+---
 
-Unicode-Friendly Tokenization: Built using a custom token pattern (r"[^\s]+") to prevent complex scripts (like Bengali vowels/car-signs) from breaking during vectorization.
+## 🚀 Tech Stack
 
-Interactive UI: Includes a beautiful web application built with Streamlit for real-time testing.
+* **Programming Language:** Python
+* **Machine Learning:** Scikit-learn
+* **Algorithm:** Multinomial Naive Bayes
+* **Text Vectorization:** CountVectorizer
+* **Data Processing:** Pandas, NumPy
+* **Visualization:** Matplotlib, Seaborn
+* **Model Deployment:** Streamlit
+* **Model Persistence:** Joblib
 
-Public Tunneling: Integrated with Localtunnel for easy cloud deployment and sharing straight from Google Colab.
+---
 
-Tech Stack & Libraries
-Language: Python
+## 📊 Dataset & Train-Test Split
 
-Machine Learning: Scikit-learn (MultinomialNB, CountVectorizer)
+| Item                | Details                                     |
+| ------------------- | ------------------------------------------- |
+| Dataset             | Multilingual Language Dataset               |
+| Supported Languages | 23                                          |
+| Train-Test Split    | **80% Training / 20% Testing**              |
+| Vectorization       | CountVectorizer (`token_pattern=r"[^\s]+"`) |
+| Classifier          | Multinomial Naive Bayes                     |
 
-Data Manipulation: Pandas, NumPy
+---
 
-Visualization: Matplotlib, Seaborn (ConfusionMatrixDisplay)
+## 📈 Results
 
-Model Deployment: Streamlit, Localtunnel
+* ✅ High accuracy for multilingual language detection.
+* ✅ Improved prediction for Bengali and other Unicode-based languages.
+* ✅ Balanced dataset reduces bias toward majority language classes.
+* ✅ Fast and lightweight model suitable for real-time prediction.
 
-Model Persistence: Joblib
+---
 
-How the Model Works
-Data Preprocessing: Cleaned the text by removing special characters, punctuation, and numbers using Regular Expressions (re), followed by lowercasing the text.
+## ▶️ Installation
 
-Text Vectorization: Converted text data into numerical vectors using CountVectorizer with a whitespace-based token pattern to preserve non-ASCII characters.
+Install the required dependencies:
 
-Model Training: Utilized the Multinomial Naive Bayes (NB) algorithm, which is highly efficient and standard for text classification tasks.
+```bash
+pip install pandas numpy scikit-learn matplotlib seaborn streamlit joblib
+```
 
-Evaluation: Evaluated model performance using an Accuracy Score and visualized the misclassifications using a Confusion Matrix.
+---
 
- Getting Started
-1. Prerequisites
-Install the required Python packages:
+## ▶️ Run the Application
 
-Bash
-pip install pandas scikit-learn joblib streamlit
-2. Training the Model
-Run the python script or Colab notebook cells to process the dataset and train the model. This will generate two serialized files:
+Start the Streamlit application:
 
-language_detector_model.pkl (The trained Naive Bayes classifier)
-
-vectorizer.pkl (The custom vocabulary vectorizer)
-
-3. Running the Streamlit App
-Launch the interactive web UI locally or through the tunnel:
-
-Bash
+```bash
 streamlit run app.py
-📈 Results & Performance
-The model achieves high accuracy across all supported classes. By preserving Unicode characters, it perfectly distinguishes visually unique or low-resource scripts (like Bengali or Hindi) from European languages without falling back to major classes like English or Swedish.
+```
 
-Note: If you are running this project inside Google Colab, make sure to execute the Localtunnel cell to generate a public URL for accessing the Streamlit dashboard externally.
+If you are using **Google Colab**, you can expose the Streamlit app publicly using **Localtunnel**.
+
+---
+
+## 📂 Generated Files
+
+After training the model, the following files will be created:
+
+* `language_detector_model.pkl`
+* `vectorizer.pkl`
+
+---
+
+## 👨‍💻 Author
+
+**Loknath Basak Anup**
+B.Sc. in Computer Science & Engineering
+United International University (UIU)
+
+---
+
+⭐ If you found this project useful, consider giving it a **Star** on GitHub.
